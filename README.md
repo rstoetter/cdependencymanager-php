@@ -82,7 +82,7 @@ class cMyDependantClass {
     }   // function __destruct( )   
     
     //
-    // extra methods we need in order to get used by class cDependencyManager
+    // extra methods we need in order to enable the class cDependencyManagerto manage this object
     //    
 
     public function GetDependencyCompareValue( ) {
@@ -204,7 +204,7 @@ $a_optional = array(
 
 // feed the manager with optional data
 
-$obj_dependency_manager = new cDependencyManager( $a_optional );
+$obj_dependency_manager = new new \rstoetter\cdependencymanager\cDependencyManager( $a_optional );
 
 //
 // feed the manager with the other data

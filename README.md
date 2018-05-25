@@ -1,11 +1,4 @@
-
-
-
-
-
-------------------
-
-# The repository \\rstoetter\\ctabledependencymanager-php
+# The repository \\rstoetter\\cdependencymanager-php
 
 ## description  
 
@@ -31,10 +24,10 @@ But you will need PHP 7 or later to use this repository
 ```php
 
 // 
-// first we define a class cMyDependantClass, which contains the information we need and add two public methods, 
-// cDependencyManager will use:
-// The Method GetDependencyCompareValue( ) returns a (commonly unique) value, which is used by cDependencyManager to distinguish
-// between the objects of cMyDependantClass
+// first we define a class cMyDependantClass, which contains the information we need and add two 
+// public methods, cDependencyManager will use:
+// The Method GetDependencyCompareValue( ) returns a (commonly unique) value, which is used by 
+// the class cDependencyManager to distinguish between the objects of cMyDependantClass
 // The Method DependsOn( ) returns true, if the current object depends on the Object provided as argument
 //
 
@@ -202,7 +195,7 @@ $a_optional = array(
     $obj_module_01
 );
 
-// feed the manager with optional data
+// create a new dependency manager and feed the manager with the optional data
 
 $obj_dependency_manager = new new \rstoetter\cdependencymanager\cDependencyManager( $a_optional );
 
@@ -215,6 +208,7 @@ $obj_dependency_manager = new new \rstoetter\cdependencymanager\cDependencyManag
 // not valid ( is not an object or does not provide the additional methods, the class cDependencyManagerneeds to handle the rule base ).
 // If the value is false, then a warning message will be printed, when an object is not alid. This object will be ignored by the class 
 // cDependencyManager.
+//
 
 $obj_dependency_manager->AddRule( $obj_module_00 ); // ignored as the module was added already
 $obj_dependency_manager->AddRule( $obj_module_01 ); // ignored as the module was added already
@@ -254,7 +248,7 @@ foreach( $a_obj_in_order as $obj_rule ) {
 // end the program
 //
 
-die( PHP_EOL . PHP_EOL . " progran finished in " . __FILE__ . ' on line ' . __LINE__  . PHP_EOL );
+die( PHP_EOL . PHP_EOL . " program finished in " . __FILE__ . ' on line ' . __LINE__  . PHP_EOL );
 
 
 

@@ -1,0 +1,25 @@
+
+{
+    "name": "rstoetter/cdependencymanager-php",
+    "description": ""A PHP class, which is able to resolve dependencies"",
+    "license": "MIT",
+    "keywords": ["php","class","dependency-manager","dependencies"],
+    "authors": [
+        {
+            "name": "Rainer Stötter",
+            "email": "rstoetter@users.sourceforge.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "cDependencyManager": "src"
+        }
+    }
+}
+

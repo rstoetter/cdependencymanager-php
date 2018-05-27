@@ -182,7 +182,7 @@ namespace rstoetter\cdependencymanager;
             //
             // if the value of $obj is greater than this object's value then the value will be < 0 
             // if the value of this object's value is greater than the value of obj then the value will be < 0
-            // if thae value of his object's value equals the value of objthe we return 0
+            // if the value of his object's value equals the value of objthe we return 0
             //
             
 /*            echo 

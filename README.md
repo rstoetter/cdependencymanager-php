@@ -1,6 +1,16 @@
 # The repository \\rstoetter\\cdependencymanager-php
 
-## description  
+# Index
+
+## [Description](#index_description)
+## [Use Cases](#index_use_cases)
+## [Installation](#index_installation)
+## [Namespaces](#index_namespaces)
+## [Usage Example](#index_example)
+## [Helper Classes](#index_helper_classes)
+## [More Informations](#index_informations)
+
+<a name="index_description"></a>## Description
 
 The class cDependencyManager is the main class of the repository \\rstoetter\\cdependencymanager-php.
 
@@ -9,19 +19,38 @@ The class cDependencyManager is a PHP class, which is able to resolve dependenci
 You feed the class with the known dependencies of the objects you are providing and it generates an array with the objects you provided now arranged in the correct order, which is defined by the dependencies between the specific objects
 
 
-## How can I use it?
+<a name="index_use_cases"></a>## Use Cases
 
 For example, if we want to create a HTML header, which loads the necessary modules in the correct order. One file after another and the dependant files should not be loaded until the files they are dependant from have been loaded.
 
 In order to get the correct order you must not know the correct order. It is enough to know the implicit dependencies of each file. Therefore you provide the basic rules for the file ( it's unique key and the files it depends directly on) and the class cDependencyManager will then calculate the correct order of the whole dependency structure for you.
 
-## helper classes
+<a name="index_helper_classes"></a>## Helper Classes
 
 There are no helper classes necessary to use the class cDependencyManager:
 
 But you will need PHP 7 or later to use this repository
 
-## Usage:  
+<a name="index_installation"></a>## Installation
+
+This project assumes you have composer installed. Simply add:
+
+"require" : {
+
+    "rstoetter/cdependencymanager-php" : ">=1.0.0"
+
+}
+
+to your composer.json, and then you can simply install with:
+
+composer install
+
+
+<a name="index_namespaces"></a>## Namespace
+
+Use the namespace cDependencyManager in order to access the classes provided by the repository cdependencymanager-php
+
+<a name="index_example"></a>## Usage Example
 
 ```php
 
@@ -298,25 +327,6 @@ The code above will output the following result:
     #09 dependant from #7
     #12 dependant from #9
 
-## Installation
-
-This project assumes you have composer installed. Simply add:
-
-"require" : {
-
-    "rstoetter/cdependencymanager-php" : ">=1.0.0"
-
-}
-
-to your composer.json, and then you can simply install with:
-
-composer install
-
-
-## Namespace
-
-Use the namespace cDependencyManager in order to access the classes provided by the repository cdependencymanager-php
-
-## More information
+<a name="index_informations"></a>## More Information
 
 See the [project wiki of cdependencymanager-php](https://github.com/rstoetter/cdependencymanager-php/wiki) for more technical informations.

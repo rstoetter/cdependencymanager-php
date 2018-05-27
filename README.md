@@ -41,15 +41,15 @@ Use the namespace cDependencyManager in order to access the classes provided by 
 
 This repository assumes you have [composer](https://getcomposer.org/) installed. Simply add:
 
-  "require" : {
+    "require" : {
 
-    "rstoetter/cdependencymanager-php" : ">=1.0.0"
+        "rstoetter/cdependencymanager-php" : ">=1.0.0"
 
-  }
+    }
 
 to your **composer.json**, and then you can simply install with the command:
 
-  composer install
+    composer install
 
 <a name="index_example"></a><h2>Usage Example</h2>
 

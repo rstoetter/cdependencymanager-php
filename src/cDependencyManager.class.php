@@ -662,12 +662,12 @@ namespace rstoetter\cdependencymanager;
     
 /*
     // 
-    // first we define a class cMyDependantClass, which contains the information we need and add two public methods, 
-    // cDependencyManager will use:
-    // The Method GetDependencyCompareValue( ) returns a (commonly unique) value, which is used by cDependencyManager to distinguish
-    // between the objects of cMyDependantClass
-    // The Method DependsOn( ) returns true, if the current object depends on the Object provided as argument
-    //    
+    // First we define a class cMyDependantClass, which contains the information we need in our own project 
+    // and add two public methods, the class cDependencyManager needs to manage the objects added:
+    // The method **GetDependencyCompareValue( )** returns a (commonly unique) value, which is used by 
+    // the class cDependencyManager to distinguish between the objects of cMyDependantClass
+    // The method **DependsOn( )** returns true, if the current object depends on the Object provided as argument
+    //   
         
     class cMyDependantClass {
 

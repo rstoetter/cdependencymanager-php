@@ -12,12 +12,9 @@
 
 <a name="index_description"></a><h2>Description</h2>
 
-The class cDependencyManager is the main class of the repository \\rstoetter\\cdependencymanager-php.
-
-The class cDependencyManager is a PHP class, which is able to resolve dependencies (ie between classes, URLs, HTML scripts .. ). 
+The class **cDependencyManager** is a PHP class, which is able to resolve dependencies (ie between classes, URLs, HTML scripts .. ). 
 
 You feed the class with the known dependencies of the objects you are providing and it generates an array with the objects you provided now arranged in the correct order, which is defined by the dependencies between the specific objects
-
 
 <a name="index_use_cases"></a><h2>Use Cases</h2>
 
@@ -27,7 +24,7 @@ In order to get the correct order you must not know the correct order. It is eno
 
 <a name="index_classes"></a><h2>Provided Classes</h2>
 
-The main class you will use is the class **cDependencyManager**
+The class \\rstoetter\\cdependencymanager\\cDependencyManager is the main class of the repository cdependencymanager-php.
 
 There are no helper classes necessary in order to use the class cDependencyManager:
 
@@ -35,11 +32,11 @@ But you will need PHP 7 or later to use this repository
 
 <a name="index_namespaces"></a><h2>Namespace</h2>
 
-Use the namespace cDependencyManager in order to access the classes provided by the repository cdependencymanager-php
+Use the [namespace](http://php.net/manual/en/language.namespaces.php) **rstoetter\\cdependencymanager** in order to access the classes provided by the repository cdependencymanager-php.
 
 <a name="index_installation"></a><h2>Installation</h2>
 
-This repository assumes you have [composer](https://getcomposer.org/) installed. Simply add:
+The releases of the repository cdependencymanager-php are hosted by [Packagist](https://packagist.org), the main [composer](https://getcomposer.org/) repository. The repository assumes that you have composer installed. Simply add:
 
     "require" : {
 
@@ -56,7 +53,7 @@ to your **composer.json**, and then you can simply install with the command:
 ```php
 
 // 
-// first we define a class cMyDependantClass, which contains the information we need in our own project 
+// First we define a class cMyDependantClass, which contains the information we need in our own project 
 // and add two public methods, the class cDependencyManager needs to manage the objects added:
 // The method **GetDependencyCompareValue( )** returns a (commonly unique) value, which is used by 
 // the class cDependencyManager to distinguish between the objects of cMyDependantClass

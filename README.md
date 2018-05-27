@@ -27,9 +27,9 @@ In order to get the correct order you must not know the correct order. It is eno
 
 <a name="index_classes"></a><h2>Provided Classes</h2>
 
-The main class you will use is the class cDependencyManager
+The main class you will use is the class **cDependencyManager**
 
-There are no helper classes necessary to use the class cDependencyManager:
+There are no helper classes necessary in order to use the class cDependencyManager:
 
 But you will need PHP 7 or later to use this repository
 
@@ -39,15 +39,15 @@ Use the namespace cDependencyManager in order to access the classes provided by 
 
 <a name="index_installation"></a><h2>Installation</h2>
 
-This project assumes you have composer installed. Simply add:
+This repository assumes you have [composer](https://getcomposer.org/) installed. Simply add:
 
-"require" : {
+  "require" : {
 
     "rstoetter/cdependencymanager-php" : ">=1.0.0"
 
-}
+  }
 
-to your composer.json, and then you can simply install with:
+to your **composer.json**, and then you can simply install with the command:
 
   composer install
 

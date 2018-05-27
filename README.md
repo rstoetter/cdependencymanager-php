@@ -4,18 +4,20 @@
 
 The class cDependencyManager is the main class of the repository \\rstoetter\\cdependencymanager-php.
 
-The class cDependencyManager is a PHP class, which is able to resolve dependencies (ie classes, URLs, HTML scripts .. ). You feed the class with the known dependencies of the objects you are providing and it generates an array with the objects you provided now arranged in the correct order, which is defined by the dependencies of the specific objects
+The class cDependencyManager is a PHP class, which is able to resolve dependencies (ie between classes, URLs, HTML scripts .. ). 
+
+You feed the class with the known dependencies of the objects you are providing and it generates an array with the objects you provided now arranged in the correct order, which is defined by the dependencies between the specific objects
 
 
 ## How can I use it?
 
-For example, if we want to create a HTML header, which loads the necessary modules in the correct order. One file after another and the dependant files should not be loaded until the files they are dependant from hav been loaded.
+For example, if we want to create a HTML header, which loads the necessary modules in the correct order. One file after another and the dependant files should not be loaded until the files they are dependant from have been loaded.
 
-In order to get the correct order you must not know the correct order. It is enough to know, the implicit dependencies of each file. The class cDependencyManager will then do the rest for you.
+In order to get the correct order you must not know the correct order. It is enough to know the implicit dependencies of each file. Therefore you provide the basic rules for the file ( it's unique key and the files it depends directly on) and the class cDependencyManager will then calculate the correct order of the whole dependency structure for you.
 
 ## helper classes
 
-There are no helper classes necessary to use the class cdependencymanager:
+There are no helper classes necessary to use the class cDependencyManager:
 
 But you will need PHP 7 or later to use this repository
 
@@ -24,11 +26,11 @@ But you will need PHP 7 or later to use this repository
 ```php
 
 // 
-// first we define a class cMyDependantClass, which contains the information we need and add two 
-// public methods, cDependencyManager will use:
-// The Method GetDependencyCompareValue( ) returns a (commonly unique) value, which is used by 
+// first we define a class cMyDependantClass, which contains the information we need in our own project 
+// and add two public methods, the class cDependencyManager needs to manage the objects added:
+// The method **GetDependencyCompareValue( )** returns a (commonly unique) value, which is used by 
 // the class cDependencyManager to distinguish between the objects of cMyDependantClass
-// The Method DependsOn( ) returns true, if the current object depends on the Object provided as argument
+// The method **DependsOn( )** returns true, if the current object depends on the Object provided as argument
 //
 
 class cMyDependantClass {
@@ -100,83 +102,101 @@ class cMyDependantClass {
 // 
 
 $obj_module_00 = new cMyDependantClass(
-        '#1 js file_without_dependencies 1'
+        '#01 file_without_dependencies'
 );
 
 $obj_module_01 = new cMyDependantClass(
-        '#2 dependant from #1',
-        array( '#1 js file_without_dependencies 1' )        
+        '#02 dependant from #1',
+        array( '#01 file_without_dependencies' )        
 );
 
 $obj_module_02 = new cMyDependantClass(
-        '#3 dependant from #1',
-        array( '#1 js file_without_dependencies 1' )        
+        '#03 dependant from #1',
+        array( '#01 file_without_dependencies' )        
 );
 
 $obj_module_03 = new cMyDependantClass(
-        '#4 dependant from #3',
-        array( '#3 dependant from #1' )        
+        '#04 dependant from #3',
+        array( '#03 dependant from #1' )        
 );
 
 $obj_module_04 = new cMyDependantClass(
-        '#5 dependant from #3',
-        array( '#3 dependant from #1' )        
+        '#05 dependant from #3',
+        array( '#03 dependant from #1' )        
 );
 
 $obj_module_05 = new cMyDependantClass(
-        '#6 dependant from #2 and #3',
-        array( '#3 dependant from #1', '#2 dependant from #1' )        
+        '#06 dependant from #2 and #3',
+        array( 
+            '#03 dependant from #1', 
+            '#02 dependant from #1' 
+        )        
 );
 
 $obj_module_06 = new cMyDependantClass(
-        '#7 dependant from #2 and #3',
-        array( '#3 dependant from #1', '#2 dependant from #1' )        
+        '#07 dependant from #2 and #3',
+        array( 
+            '#03 dependant from #1', 
+            '#02 dependant from #1' 
+        )        
 );
 
 $obj_module_07 = new cMyDependantClass(
-        '#8 js file_without_dependencies 2',
+        '#08 file_without_dependencies',
         array(  )        
 );
 
 $obj_module_08 = new cMyDependantClass(
-        '#9 dependant from #7',
-        array( '#7 dependant from #2 and #3' )        
+        '#09 dependant from #7',
+        array( '#07 dependant from #2 and #3' )        
 );
 
 $obj_module_09 = new cMyDependantClass(
         '#10 dependant from #7',
-        array( '#7 dependant from #2 and #3' )        
+        array( '#07 dependant from #2 and #3' )        
 );
 
 $obj_module_10 = new cMyDependantClass(
         '#11 dependant from #7',
-        array( '#7 dependant from #2 and #3' )        
+        array( '#07 dependant from #2 and #3' )        
 );
 
 $obj_module_11 = new cMyDependantClass(
         '#12 dependant from #9',
-        array( '#9 dependant from #7' )        
+        array( '#09 dependant from #7' )        
 );
 
 $obj_module_12 = new cMyDependantClass(
         '#13 dependant from #1',
-        array( '#1 js file_without_dependencies 1' )        
+        array( '#01 file_without_dependencies' )        
 );
 
 $obj_module_13 = new cMyDependantClass(
         '#14 dependant from #1',
-        array( '#1 js file_without_dependencies 1' )        
-);
-
-$obj_module_13 = new cMyDependantClass(
-        '#15 js file_without_dependencies 1',
-        array( )        
+        array( '#01 file_without_dependencies' )        
 );
 
 $obj_module_14 = new cMyDependantClass(
-        '#15 js file_without_dependencies 1'
+        '#15 file_without_dependencies',
+        array( )        
 );
 
+$obj_module_15 = new cMyDependantClass(
+        '#16 file_without_dependencies'
+);
+
+$obj_module_16 = new cMyDependantClass(
+        '#17 dependant from #7',
+        array( '#07 dependant from #2 and #3' )        
+);
+
+$obj_module_17 = new cMyDependantClass(
+        '#18 dependant from #5 and #2',
+        array( 
+            '#05 dependant from #3', 
+            '#02 dependant from #1' 
+        )        
+);
 
 //
 // after instantiating the module classes, we feed the class cDependencyManager with the modules
@@ -186,13 +206,16 @@ $obj_module_14 = new cMyDependantClass(
 // create a new object of the class cDependencyManager
 //
 //
-// For your convinience you could supply an optional array of objects as first parameter. The class cDependencyManager will then add 
+// For your convinience you could supply an **optional** array of objects as first parameter. The class cDependencyManager will then add 
 // the objects to this array 
 //
 
 $a_optional = array(
     $obj_module_00,
-    $obj_module_01
+    $obj_module_01,
+    new cMyDependantClass(
+        '#19 file_without_dependencies'
+    )
 );
 
 // create a new dependency manager and feed the manager with the optional data
@@ -200,14 +223,14 @@ $a_optional = array(
 $obj_dependency_manager = new new \rstoetter\cdependencymanager\cDependencyManager( $a_optional );
 
 //
-// feed the manager with the other data
+// feed the manager with the other data by calling it's method Add( )
 // if the object added does not provide the expected methods or is not an object, the process will crash with an error message
 // objects already added to the data base and null values will be ignored, in this case AddRule( ) will return false, otherwise true
 //
 // the second parameter is optional and defaults to true. If true, then the class cDependencyManager will abort, if the given object is 
 // not valid ( is not an object or does not provide the additional methods, the class cDependencyManagerneeds to handle the rule base ).
-// If the value is false, then a warning message will be printed, when an object is not alid. This object will be ignored by the class 
-// cDependencyManager.
+// If the value is false, then a warning message will be printed, when an object is not valid. In this case the invalid  object will be
+// ignored by the class cDependencyManager. If an object cannot be added, then Add( ) returns false.
 //
 
 $obj_dependency_manager->AddRule( $obj_module_00 ); // ignored as the module was added already
@@ -251,11 +274,29 @@ foreach( $a_obj_in_order as $obj_rule ) {
 die( PHP_EOL . PHP_EOL . " program finished in " . __FILE__ . ' on line ' . __LINE__  . PHP_EOL );
 
 
-
-
-
 ```
 
+The code above will output the following result:
+
+    #08 file_without_dependencies
+    #19 file_without_dependencies
+    #16 file_without_dependencies
+    #15 file_without_dependencies
+    #01 file_without_dependencies
+    #13 dependant from #1
+    #03 dependant from #1
+    #02 dependant from #1
+    #14 dependant from #1
+    #04 dependant from #3
+    #05 dependant from #3
+    #06 dependant from #2 and #3
+    #07 dependant from #2 and #3
+    #18 dependant from #5 and #2
+    #10 dependant from #7
+    #11 dependant from #7
+    #17 dependant from #7
+    #09 dependant from #7
+    #12 dependant from #9
 
 ## Installation
 

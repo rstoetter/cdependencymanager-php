@@ -44,7 +44,7 @@ The releases of the repository cdependencymanager-php are hosted by [Packagist](
 
     }
 
-to your **composer.json**, and then you can simply install with the command:
+to your **composer.json**, and then you can simply install it with the command:
 
     composer install
 

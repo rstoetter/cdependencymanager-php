@@ -1,7 +1,7 @@
 
 {
     "name": "rstoetter/cdependencymanager-php",
-    "description": ""A PHP class, which is able to resolve dependencies"",
+    "description": "A PHP class, which is able to resolve dependencies",
     "license": "MIT",
     "keywords": ["php","class","dependency-manager","dependencies"],
     "authors": [

@@ -4,10 +4,10 @@
 
 ## [Description](#index_description)
 ## [Use Cases](#index_use_cases)
-## [Installation](#index_installation)
+## [Provided Classes](#index_classes)
 ## [Namespaces](#index_namespaces)
+## [Installation](#index_installation)
 ## [Usage Example](#index_example)
-## [Helper Classes](#index_helper_classes)
 ## [More Informations](#index_informations)
 
 <a name="index_description"></a><h2>Description</h2>
@@ -25,11 +25,17 @@ For example, if we want to create a HTML header, which loads the necessary modul
 
 In order to get the correct order you must not know the correct order. It is enough to know the implicit dependencies of each file. Therefore you provide the basic rules for the file ( it's unique key and the files it depends directly on) and the class cDependencyManager will then calculate the correct order of the whole dependency structure for you.
 
-<a name="index_helper_classes"></a><h2>Helper Classes</h2>
+<a name="index_classes"></a><h2>Provided Classes</h2>
+
+The main class you will use is the class cDependencyManager
 
 There are no helper classes necessary to use the class cDependencyManager:
 
 But you will need PHP 7 or later to use this repository
+
+<a name="index_namespaces"></a><h2>Namespace</h2>
+
+Use the namespace cDependencyManager in order to access the classes provided by the repository cdependencymanager-php
 
 <a name="index_installation"></a><h2>Installation</h2>
 
@@ -43,12 +49,7 @@ This project assumes you have composer installed. Simply add:
 
 to your composer.json, and then you can simply install with:
 
-composer install
-
-
-<a name="index_namespaces"></a><h2>Namespace</h2>
-
-Use the namespace cDependencyManager in order to access the classes provided by the repository cdependencymanager-php
+  composer install
 
 <a name="index_example"></a><h2>Usage Example</h2>
 

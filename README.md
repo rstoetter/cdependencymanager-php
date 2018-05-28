@@ -247,7 +247,7 @@ $a_optional = array(
 
 // create a new dependency manager and feed the manager with the optional data
 
-$obj_dependency_manager = new new \rstoetter\cdependencymanager\cDependencyManager( $a_optional );
+$obj_dependency_manager = new \rstoetter\cdependencymanager\cDependencyManager( $a_optional );
 
 //
 // feed the manager with the other data by calling it's method Add( )
